@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 node_modules
 dev-data
 
 \.env
+=======
+node_modules
+dev-data
+>>>>>>> 4b82c1fd13d821fd4931ceee5305b977fce30016
