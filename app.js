@@ -23,6 +23,17 @@ const app = express();
 app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+//--------------- Access Control Allow Origin -----------------
+app.use(cors());
+//api.natours.com, front-end natours.com
+// app.use({
+//   origin: "https://www.natours.com"
+// });
+
+app.options('*', cors());
+// app.options('/api/v1/tours/:id', cors());
+
 app.use(express.static(path.join(__dirname,'public'))); //Serving static files
 
 //1) GLOBAL MIDDLEWARES
@@ -48,11 +59,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb'}));
 app.use(cookieParser());
 
-//--------------- Access Control Allow Origin -----------------
-app.use(cors({
-  credentials: true,
-  origin: 'http://localhost:3000'
-}));
+
 
 //Data Sanitization against NoSQL query injection
 app.use(mongoSanitize());
