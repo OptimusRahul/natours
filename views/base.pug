@@ -8,9 +8,11 @@ html
             link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
             link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
             title Natours | #{title}
-            // HEADER
-            include _header
-    body
+
+    body(data-alert=`$(alert ? alert: ''}`)
+        // HEADER
+        include _header
+
         // CONTENT
         block content
             h1 This is a placeholder heading
