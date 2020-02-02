@@ -15,14 +15,14 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user._id);
-    // console.log(token); 
+    console.log(token); 
   
     res.cookie('jwt', token, {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: req.secure || req.headers('x-forwarded-proto') === 'https',
+    secure: req.secure, //|| req.headers('x-forwarded-proto') === 'https',
     credentials: 'include'
   });
   
@@ -51,6 +51,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 exports.login = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;
 
+    console.log(email, password);
     // 1) Check if email and password exist
     if (!email || !password) {
         return next(new AppError('Please provide email and password', 400));
