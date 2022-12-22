@@ -28,7 +28,7 @@
     "hpp": "^0.2.2",
     "html-to-text": "^5.1.1",
     "jshint": "^2.10.3",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mkcert": "^1.2.0",
     "mongoose": "^5.8.0",
     "morgan": "^1.9.1",
